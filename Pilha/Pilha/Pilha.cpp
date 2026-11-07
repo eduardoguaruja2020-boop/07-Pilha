@@ -78,22 +78,24 @@ void push()
 {
 	// aloca memoria dinamicamente para o novo elemento
 	NO* novo = (NO*)malloc(sizeof(NO));
-	if (novo == NULL)
-	{
-		return;
-	}
-
-	cout << "Digite o elemento: ";
-	cin >> novo->valor;
-	novo->prox = NULL;
-
-
+	int valor;
+	cout << "DIGITE O VALOR A SER INSERIDO NA PILHA:\n";
+	cin >> valor;
+	novo->valor = valor;
+	novo->prox = topo;
+	topo = novo;
+	cout << "ELEMENTO INSERIDO COM SUCESSO\n";
 }
 
 void pop()
 {
-
-	
-
+	NO* aux = topo;
+	if (topo == NULL) {
+		cout << "PILHA VAZIA.\n";
+		return;
+	}
+	cout << "ELEMENTO " << aux->valor << " REMOVIDO COM SUCESSO.\n";
+	topo = topo->prox;
+	free(aux);
 }
 
